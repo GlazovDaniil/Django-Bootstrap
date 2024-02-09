@@ -1,8 +1,11 @@
 # Django-Bootstrap
 
+## [*Отчет за первую неделю*](https://docs.google.com/document/d/1BkrYGGKddjAsYsQeovS1hwn-a2syi1rSZSoG2ideOR0/edit?usp=sharing)
+
+
 #
-## **0.1**
-**Сделано:**
+## *0.1*
+*Сделано:*
 - структура сайта при помощи Django
 - установлены и настроены доп. пакеты
 - структуры моделей данных сайта
