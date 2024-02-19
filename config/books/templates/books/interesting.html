@@ -1,0 +1,31 @@
+<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="{% static 'images/klown.png' %}" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+            <div class="gap-2 w-100 justify-content-between ">
+                <div class="">
+                    <h6 class="mb-0">Колличество книг</h6>
+                    <p class="mb-0 opacity-75">Колличество различных книг - {{ num_books }}</p>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="{% static 'images/klown.png' %}" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+            <div class="gap-2 w-100 justify-content-between">
+                <div>
+                    <h6 class="mb-0">На складе в наличии</h6>
+                    <p class="mb-0 opacity-75">Колличество книг в данный момент на складе - {{ num_instances_available }}</p>
+                </div>
+            </div>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <img src="{% static 'images/klown.png' %}" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+            <div class="gap-2 w-100 justify-content-between">
+                <div>
+                    <h6 class="mb-0">Колличество авторов</h6>
+                    <p class="mb-0 opacity-75">Колличество авторов, книги которых есть - {{ num_authors }}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

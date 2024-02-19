@@ -1,11 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Book, BookInstance, Author
 
-# Create your views here.
-class BookListView(ListView):
-    model = Book
-    template_name = 'book_list.html'
 
 def index(request):
     text_head = 'На данном сайте можно пролучить книги в электронном виде'
@@ -27,3 +23,13 @@ def index(request):
                'authors': authors,
                'num_authors': num_authors,}
     return render(request, 'books/index.html', context)
+
+
+class BookListView(ListView):
+    model = Book
+    context_object_name = 'books'
+    paginate_by = 10
+
+
+class BookDetailView(DetailView):
+    model = Book
