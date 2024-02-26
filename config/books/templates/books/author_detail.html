@@ -1,0 +1,35 @@
+{% extends "books/base.html" %}
+{% load static %}
+{% block title %}{{ author.last_name }} {{ author.first_name }}{% endblock title %}
+{% block content %}
+    <div class="container text-start">
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-custom overflow-hidden text-center bg-body-tertiary rounded-3">
+              <li class="breadcrumb-item">
+                  <a class="link-body-emphasis fw-semibold text-decoration-none" href="/">
+                      Главная
+                  </a>
+              </li>
+              <li class="breadcrumb-item active">
+                  <a class="link-body-emphasis fw-semibold text-decoration-none" href="/authors/">Все авторы</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                  {{ author.last_name }} {{ author.first_name }}
+              </li>
+          </ol>
+      </nav>
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">{{ author.last_name }} {{ author.first_name }}</h2><br>
+                <strong class="text-muted">О писателе:</strong>
+                <p class="lead text-muted"> {{ author.about }}</p>
+                <p class="text-muted"><strong>Родился:</strong> {{ author.date_of_birth }}</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="{{ author.photo.url }}" class="ms-5" alt="connect" style="max-height: 400px">
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block books %}{% endblock books %}

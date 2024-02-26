@@ -28,8 +28,41 @@ def index(request):
 class BookListView(ListView):
     model = Book
     context_object_name = 'books'
-    paginate_by = 10
+    paginate_by = 6
 
 
 class BookDetailView(DetailView):
     model = Book
+
+
+class AuthorView(ListView):
+    model = Author
+    paginate_by = 6
+
+
+class AuthorDetailView(DetailView):
+    model = Author
+
+
+def about(request):
+    text_head = 'Сведения о компании'
+    name = 'ООО "ГлаДИ"'
+    rab1 = ('Разработка приложений на основе '
+            'систем искусственного интеллекта')
+    rab2 = 'Распознавание объектов дорожной инфраструктуры'
+    rab3 = ('Создание графических АРТ-объектов на основе '
+            'систем искусственного интелпекта')
+    rab4 = ('Создание цифровых интерактивных книг, учебных пособий'
+            ' автоматизированных обучающих систем')
+    context = {'text_head': text_head, 'name': name, 'rab1': rab1, 'rab2': rab2, 'rab3': rab3, 'rab4': rab4}
+    return render(request, 'books/about.html', context)
+
+
+def contact(request):
+    text_head = 'Контакты'
+    name = 'ООО "ГлаДИ"'
+    address = 'Москва, ул. Планерная, д. 20, к. 1'
+    tel = '495-345-45-45'
+    email = 'iis_info@mail.ru'
+    context = {'text_head': text_head, 'name': name, 'address': address, 'tel': tel, 'email': email}
+    return render(request, 'books/contact.html', context)

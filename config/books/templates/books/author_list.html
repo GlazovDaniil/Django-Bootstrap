@@ -1,0 +1,46 @@
+{% extends "books/base.html" %}
+{% load static %}
+{% block title %}Список авторов{% endblock title %}
+{% block content %}
+    <div class="container my-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-custom overflow-hidden text-center bg-body-tertiary rounded-3">
+                <li class="breadcrumb-item">
+                    <a class="link-body-emphasis fw-semibold text-decoration-none" href="/">
+                        Главная
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">
+                    Все авторы
+                </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row text-center text-dark lh-2 my-4">
+        <h1>Список авторов книг</h1>
+    </div>
+    {% if author_list %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for author in author_list.all %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="500" src="{{ author.photo.url }}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
+                    <div class="card-body">
+                        <h4>{{author.last_name}} {{author.first_name}}</h4>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="/authors/{{ author.id }}">Смотря</a>
+                            </div>
+                            <small class="text-body-secondary">Дата рождения: {{ author.date_of_birth }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <h1>нет ни ху а <br>:(</h1>
+    {% endif %}
+
+{% endblock content %}
+{% block books %}{% endblock books %}

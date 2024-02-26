@@ -1,0 +1,57 @@
+{% extends "books/base.html" %}
+{% load static %}
+{% block title %}Контакты{% endblock title %}
+{% block content %}
+<div class="container text-start">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-custom overflow-hidden text-center bg-body-tertiary rounded-3">
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none" href="/">
+          Главная
+        </a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Контакты
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="container-fluid">
+  <div class="row my-2 text-center">
+    <div class="col-5"></div>
+    <div class="col-1 text-center">
+      <img src="{% static 'images/image1.jpg' %}" width="140" height="140">
+    </div>
+    <div class="col-5"></div>
+  </div>
+  <div class="row my-2 text-primary text-center">
+    <h3>{{ name }}</h3>
+  </div>
+  <div class="row my-2 text-muted">
+    <h4 class="text-center">{{ text_head }}</h4>
+  </div>
+  <div class="col-3"></div>
+  <div class="col-6">
+    <table class="table table-bordered table-striped text-start">
+      <thead>
+        <tr>
+          <th>Адрес</th>
+          <th>Телефон</th>
+          <th>e-mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>{{ address }}</td>
+            <td>{{ tel }}</td>
+            <td>{{ email }}</td>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+{% endblock content %}
+{% block books %}{% endblock books %}

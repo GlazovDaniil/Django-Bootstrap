@@ -47,46 +47,6 @@
     <div class="text-center">
         <h2 class="text-body-emphasis">Книги</h2>
     </div>
-    {% if num_books > 0 %}
-        <div class="album py-5 bg-body-tertiary">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {% for obj in books %}
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="500" src="{{ obj.photo.url }}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"/>
-                                <div class="card-body">
-                                    <h4>{{obj.title}}</h4>
-                                    <p class="card-text small">
-                                        Цена: {{obj.price}} руб.
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a type="button" class="btn btn-sm btn-outline-secondary" href="/books/{{ obj.id }}">Смотря</a>
-                                            <a type="button" class="btn btn-sm btn-outline-secondary">Редактировать</a>
-                                        </div>
-                                        <small class="text-body-secondary">ISBN: {{ obj.isbn }}</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    {% else %}
-        <div class="container my-5">
-            <div class="bg-body-tertiary p-5 rounded">
-                <div class="col-sm-8 py-5 mx-auto">
-                    <h1 class="display-5 fw-normal">Нет информации о книгах</h1>
-                    <p class="fs-5">На данный момент в базе данных нет информации о книгах, если вам что-то не нравится, то можете <a href="#">ничего</a> или <a href="https://www.youtube.com/watch?v=kSnrQR9BS80">чего</a></p>
-                    <p>Ждите там, ну не знаю, партч, картч, фарч или что вы там ждете.</p>
-                    <p>
-                      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=kSnrQR9BS80" role="button">Узнать чего там »</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    {% endif %}
+
 </div>
 {% endblock content %}
