@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Book, BookInstance, Author
+from django.contrib.auth import logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def index(request):
@@ -44,6 +46,19 @@ class AuthorDetailView(DetailView):
     model = Author
 
 
+class LoanedBooksByUserListView(LoginRequiredMixin, ListView):
+    """
+    Универсальный класс представления списка книг,
+    находящихся в заказе у текущего пользователя.
+    """
+    model = BookInstance
+    template_name = 'catalog/bookinstance_list_borrowed_user.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='2').order_by('due_back')
+
+
 def about(request):
     text_head = 'Сведения о компании'
     name = 'ООО "ГлаДИ"'
@@ -66,3 +81,8 @@ def contact(request):
     email = 'iis_info@mail.ru'
     context = {'text_head': text_head, 'name': name, 'address': address, 'tel': tel, 'email': email}
     return render(request, 'books/contact.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')

@@ -1,5 +1,5 @@
-from django.urls import path, re_path
-from .views import index, BookListView, BookDetailView, AuthorView, AuthorDetailView, about, contact
+from django.urls import path, re_path, include
+from .views import index, BookListView, BookDetailView, AuthorView, AuthorDetailView, about, contact, logout_view
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -11,6 +11,9 @@ urlpatterns = [
     re_path(r'^authors/(?P<pk>\d+)$', AuthorDetailView.as_view(), name='authors-detail'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
+
+    path('accounts/logout/', logout_view, name='logout'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

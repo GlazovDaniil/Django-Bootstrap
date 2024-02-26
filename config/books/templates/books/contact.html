@@ -1,6 +1,17 @@
 {% extends "books/base.html" %}
 {% load static %}
 {% block title %}Контакты{% endblock title %}
+{% block style %}
+    <style>
+        .footer {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 114px;
+        }
+    </style>
+{% endblock style %}
 {% block content %}
 <div class="container text-start">
   <nav aria-label="breadcrumb">

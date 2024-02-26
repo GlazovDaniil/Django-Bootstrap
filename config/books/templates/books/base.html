@@ -4,13 +4,15 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
     <script defer src="/static/js/bootstrap.bundle.min.js"></script>
     <title>{% block title %}{% endblock title %}</title>
+    {% block style %}{% endblock style %}
 </head>
 
-<body>
-    <header class="p-3 text-bg-dark">
+<body class="d-flex flex-column h-100 bg-body-tertiary">
+    <header class="p-3 text-bg-dark flex-shrink-0">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -30,8 +32,13 @@
                 </form>
 
                 <div class="text-end">
-                  <button type="button" class="btn btn-outline-light me-2">Войти</button>
-                  <button type="button" class="btn btn-warning">Регистрация</button>
+                    {% if request.user.id is None %}
+                        <a href="{% url 'login' %}" type="button" class="btn btn-outline-light me-2" >Войти</a>
+                        <a href="{% url 'index' %}" type="button" class="btn btn-warning">Регистрация</a>
+                    {% else %}
+                        {{ request.user }}
+                        <a href="{% url 'logout' %}" type="button" class="btn btn-outline-light me-2 ms-2" >Выйти</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -107,15 +114,17 @@
 
         </div>
     </div>
-    <footer class="text-body-secondary py-5 border-top text-bg-dark">
+    {% block footer %}
+    <footer class="footer mt-auto text-body-secondary py-5 border-top text-bg-dark">
         <div class="container text-white">
             <p class="float-end mb-1">
                 <a class="text-white" href="#">Вернуться к началу</a>
             </p>
-            {% block footer %}
+
             <p>© ООО "ГлаДИ", 2024. Все права защищены</p>
-            {% endblock footer %}
+
         </div>
     </footer>
+    {% endblock footer %}
 </body>
 </html>
