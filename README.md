@@ -1,6 +1,28 @@
 # Django-Bootstrap
 
+## [*Отчет за третью неделю*](https://docs.google.com/document/d/1XXVKCfGncMht-VUV1gyUi7cZ0I5XOK29q24o4XpmsBE/edit?usp=sharing)
 ## [*Отчет за первую неделю*](https://docs.google.com/document/d/1BkrYGGKddjAsYsQeovS1hwn-a2syi1rSZSoG2ideOR0/edit?usp=sharing)
+
+#
+## *0.2*
+*Сделано:*
+- Переделан визуальный стиль главной страницы;
+  
+![image](https://github.com/GlazovDaniil/Django-Bootstrap/assets/78955311/ced2763a-e8bf-417c-a74b-d0dc7271e8f4)
+
+Добавлены страницы:
+- список книг,
+
+![image](https://github.com/GlazovDaniil/Django-Bootstrap/assets/78955311/6c03ec9c-125c-4d9d-a660-6a91f939d46a)
+
+- подробная информация о выбранной книге;
+
+![image](https://github.com/GlazovDaniil/Django-Bootstrap/assets/78955311/9c45c491-e447-4cb3-9229-55aae7e1df40)
+
+  
+- Добавлено динамическое использование статических файлов (картинок);
+- Добавлено динамическое использование динамических файлов (фото обложек книг из БД);
+- Добавлена пагинация по 10 записей на странице «список книг».
 
 
 #
