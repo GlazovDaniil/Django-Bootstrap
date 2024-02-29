@@ -1,7 +1,14 @@
 # Django-Bootstrap
 
-## [*Отчет за третью неделю*](https://docs.google.com/document/d/1XXVKCfGncMht-VUV1gyUi7cZ0I5XOK29q24o4XpmsBE/edit?usp=sharing)
-## [*Отчет за первую неделю*](https://docs.google.com/document/d/1BkrYGGKddjAsYsQeovS1hwn-a2syi1rSZSoG2ideOR0/edit?usp=sharing)
+#
+## *0.4*
+*Сделано:*
+- Реализованы пользователи сайта вход и выход;
+- Реализована смена пароля для пользователя, путем получения ссылки для смены по электронной почте;
+- Реализованы карточки авторов;
+- Добавлена страница списка авторов;
+- Переработан визуальный вид списка книг.
+
 
 #
 ## *0.2*
